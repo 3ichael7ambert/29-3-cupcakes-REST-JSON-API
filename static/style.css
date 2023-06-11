@@ -1,0 +1,248 @@
+body {
+  background-color:darkcyan;
+  color:palevioletred;
+
+}
+
+/* Center and vertical center the container */
+#container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color:lightpink;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* CUPCAKE IMAGES */
+.Cupcake-img {
+  width: 50px;
+  transition: all 1000ms;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.Cupcake-img:hover {
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.3);
+
+  transform: scale(1.5);
+}
+
+/* CUPCAKE LIST */
+#cupcakes-list {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: smaller;
+}
+li {
+  flex: 1 0 20%; /* Adjust the width of each box as needed */
+  margin: 5px; /* Adjust the spacing between the boxes as needed */
+  background-color:bisque;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+
+}
+
+
+/* Cupcake styling */
+.cupcake {
+  width: 80%;
+  max-width: 200px;
+  height: auto;
+  background-color: #FF6F61; /* Coral */
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Additional cupcake decorations */
+.cupcake:before {
+  content: "";
+  width: 30%;
+  max-width: 50px;
+  height: auto;
+  background-color: #FFCCB6; /* Light coral */
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cupcake:after {
+  content: "";
+  width: 15%;
+  max-width: 20px;
+  height: auto;
+  background-color: #FFCCB6; /* Light coral */
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* Form styling */
+#new-cupcake-form {
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+#new-cupcake-form div {
+  margin-bottom: 10px;
+}
+
+#new-cupcake-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin:10px;
+}
+
+#new-cupcake-form input {
+  width: 100%;
+  padding: 5px;
+  margin:5px;
+  background-color:lightpink;
+  color:palevioletred;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  /* display: flex;
+  flex-wrap: wrap; */
+  position:static;
+  margin:20px auto;
+  padding:10px;
+  margin-top: 10px; 
+  flex-direction:column;/* Add margin-top to create space between inputs and button */
+  background-color: lightpink;
+  border-radius: 5px;
+  border:0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+/* Media query for screens less than 800px */
+@media (max-width: 800px) {
+  #container {
+    padding: 20px;
+    display: grid;
+  }
+
+  .cupcake {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .cupcake:before {
+    width: 20%;
+    max-width: 30px;
+    top: -5px;
+  }
+
+  .cupcake:after {
+    width: 10%;
+    max-width: 15px;
+  }
+
+
+  #new-cupcake-form {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    animation: none;
+    background-color: blanchedalmond;
+  }
+}
+
+
+
+
+
+
+/* Background animation */
+@keyframes pulsate {
+  0% {
+    background-color: #F8E9D8; /* Initial color */
+  }
+  33% {
+    background-color: #FFDAB9; /* Intermediate color */
+  }
+  66% {
+    background-color:lightpink;
+  }
+  100% {
+    background-color: #F8E9D8; /* Back to initial color */
+  }
+}
+
+#container {
+  animation: pulsate 3s ease-in-out infinite;
+}
+
+
+
+
+
+/* Bokeh animation */
+@keyframes bokeh {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+body {
+  /* position: relative; */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, transparent 60%);
+  transform: translate(-50%, -50%);
+  animation: bokeh 2s infinite;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, transparent 80%);
+  transform: translate(-50%, -50%);
+  animation: bokeh 3s infinite;
+}
